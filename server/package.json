@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "This project was created by Bhakti Buana.\r Don't forget to support me with:\r - Subscribe my YouTube channel [Bhakti Buana](https://www.youtube.com/channel/UCV0a90P647_TGMeCfmQRfgA).\r - Follow my instagram [bhakti_buana](https://www.instagram.com/bhakti_buana).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "devStart": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "googleapis": "^89.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.7.0",
+    "nodemon": "^2.0.14"
+  }
+}
