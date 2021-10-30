@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Dashboard = () => {
+const Data = () => {
   return (
     <>
+      
     </>
   );
 };
 
-export default Dashboard;
+export default Data;

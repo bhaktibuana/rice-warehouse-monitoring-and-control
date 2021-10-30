@@ -36,12 +36,12 @@ const LandingPageComponents = () => {
               to='control'
               onMouseEnter={onHover}
               onMouseLeave={onHover}
-              primary={true}
-              dark={true}
+              primary="true"
+              dark="true"
               smooth={true}
               duration={500}
               spy={true}
-              exact={true}
+              exact="true"
               offset={-70}
             >
               Get Started! {hover ? (<ArrowForward />) : (<ArrowRight />)}

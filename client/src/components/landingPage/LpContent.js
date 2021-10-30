@@ -40,6 +40,10 @@ const LpContent = ({
     setSignupState(!signupState);
   };
 
+  const redirectNothing = () => {
+    setSignupState(false);
+  }
+
   return (
     <>
       {signupState ? (<Redirect to='/signup' />) : ''}
@@ -57,11 +61,11 @@ const LpContent = ({
                     smooth={true}
                     duration={500}
                     spy={true}
-                    exact={true}
+                    exact="true"
                     offset={-70}
                     primary={primary ? 1 : 0}
                     dark={dark}
-                    onClick={redirect ? redirectHandler : ''}
+                    onClick={redirect ? redirectHandler : redirectNothing}
                   >{buttonLabel}</Button>
                 </BtnWrap>
               </TextWrapper>

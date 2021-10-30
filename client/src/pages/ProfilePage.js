@@ -1,48 +1,40 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import Dashboard from '../components/dashboard';
 import Navbar from '../components/navbar';
+import Profile from '../components/profile';
 import Sidebar from '../components/sidebar';
 
-const DashboardPage = () => {
+const ProfilePage = () => {
 
   const redirectHandler = () => {
     if (localStorage.getItem("role") === null) {
       if (sessionStorage.getItem("role") === null) {
         return true;
       } else {
-        if (sessionStorage.getItem("role") === "visitor") {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    } else {
-      if (localStorage.getItem("role") === "visitor") {
-        return true;
-      } else {
         return false;
       }
+    } else {
+      return false;
     }
   }
 
   const sideBarObj = {
-    sidebarObject: 'dashboard'
+    sidebarObject: 'profile'
   }
 
   const navObj = {
-    title1: 'Admin Page',
-    title2: 'Dashboard'
+    title1: 'Account Page',
+    title2: 'Profile'
   }
 
   return (
     <>
       {redirectHandler() === true ? <Redirect to='/' /> : ''}
-      <Dashboard />
-      <Sidebar {...sideBarObj} />
+      <Profile />
+      <Sidebar {...sideBarObj} />      
       <Navbar {...navObj} />
     </>
   );
 };
 
-export default DashboardPage;
+export default ProfilePage;

@@ -11,6 +11,24 @@ import {
 } from './SidebarLpStyled';
 
 const SidebarLp = ({ isOpen, toggle }) => {
+
+  const checkUserExist = () => {
+    if (localStorage.getItem("email") === null) {
+      if (sessionStorage.getItem("email") === null) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return true;
+    }
+  };
+
+  const signOutHandler = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+  }
+
   return (
     <>
       <SidebarContainer isOpen={isOpen} onClick={toggle}>
@@ -35,7 +53,11 @@ const SidebarLp = ({ isOpen, toggle }) => {
           </SidebarMenu>
 
           <SideBtnWrap>
-            <SidebarRoute to="/signin">Sign In</SidebarRoute>
+            {checkUserExist() ? (
+              <SidebarRoute onClick={signOutHandler} to="/signin">Sign Out</SidebarRoute>
+            ) : (
+              <SidebarRoute to="/signin">Sign In</SidebarRoute>
+            )}
           </SideBtnWrap>
         </SidebarWrapper>
       </SidebarContainer>

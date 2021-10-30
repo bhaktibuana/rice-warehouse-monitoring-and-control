@@ -1,91 +1,98 @@
 import styled from 'styled-components';
 import { Link as LinkR } from 'react-router-dom';
+import { FiLogOut } from 'react-icons/fi';
 
-export const NavbarWrapper = styled.div`
-  padding: 5px;
-  background: transparent;
-  align-items: center;
-  justify-content: center;
+export const Nav = styled.div`
+  background: linear-gradient(
+    112.83deg, 
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 255, 255, 0.8) 110.84%
+  );
+  top: 18px;
   display: flex;
-  height: 90px;
-`;
-
-export const Nav = styled.nav`
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 0px 8px #c2c9d1;
-  border-radius: 18px;
-  height: 60px;
-  margin-top: 0px;
-  display: flex;
-  width: 600px;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: #fff;
   position: fixed;
-  top: 5;
-  z-index: 10;
-
-  @media screen and (max-width: 640px) {
-    transition: 0.8s all ease;
-    width: 95%;
-    top: 5;
-  }
-`;
-
-export const NavbarContainer = styled.div`
-  display: flex;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 18px;
-  justify-content: space-between;
-  height: 60px;
-  z-index: 1;
-  width: 100%;
-  padding: 0 10px;
-  max-width: 600px;
-`;
-
-export const NavLogo = styled(LinkR)`
-  color: #fac267;
-  background: transparent;
-  justify-content: flex-start;
-  cursor: pointer;
-  font-size: 1.5rem;
-  display: flex;
+  box-shadow: rgb(0 0 0 / 5%) 0px 7px 23px;
+  filter: none;
+  backdrop-filter: blur(21px);
+  transition-delay: 0s, 0s, 0s, 0s;
+  transition-duration: 0.25s, 0.25s, 0.25s, 0s;
+  transition-timing-function: linear, linear, linear, linear;
+  border-radius: 16px;
+  min-height: 75px;
+  line-height: 25.6px;
+  margin-inline: auto;
+  margin-top: 0px;
+  padding: 8px 30px 8px 12px;
+  right: 30px;
+  left: calc(276px + 15px + 15px);
+  width: calc(100% - 276px - 30px - 30px);
   align-items: center;
-  margin-left: 4px;
-  font-weight: bold;
-  text-decoration: none;
 `;
 
-export const NavImg = styled.img`
+export const NavContainer = styled.div`
   background: transparent;
-  width: 45px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+`;
+
+export const NavTitle = styled.div`
+  background: transparent;
+  width: auto;
+  height: 100%;
+  display: grid;
+`;
+
+export const TitleText1 = styled.p`
+  background: transparent;
+  font-size: 1.1rem;
+  color: rgb(140, 140, 140);
+`;
+
+export const TitleText2 = styled.p`
+  background: transparent;
+  font-size: 1.1rem;
+  color: rgb(40, 40, 40);
+  font-weight: bold;
 `;
 
 export const NavBtn = styled.nav`
+  background: transparent;
   display: flex;
   align-items: center;
-  background: transparent;
 `;
 
-export const NavBtnLink = styled(LinkR)`
-  border-radius: 30px;
-  background: #fac267;
-  white-space: nowrap;
-  padding: 10px 22px;
-  color: #FFFFFF;
-  font-size: 16px;
+export const NavBtnText = styled.p`
+  background: transparent;
   font-weight: bold;
-  outline: none;
-  border: 2px solid #FFFFFF;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  font-size: 1.1rem;
+  color: rgb(90, 90, 90);
+`;
+
+export const IconLink = styled(LinkR)`
+  background: transparent;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+`;
+
+export const LogoutIcon = styled(FiLogOut)`
+  color: rgb(90, 90, 90);
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 0px 10px 0px 10px;
 
   &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #FFFFFF;
-    color: #fac267;
-    border: 2px solid #fac267;
+    width: 22px;
+    height: 22px;
+    margin: 0px 10px 0px 8px;
   }
 `;

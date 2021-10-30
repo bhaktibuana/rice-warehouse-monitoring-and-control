@@ -12,13 +12,14 @@ export const controlObj = {
   imgStart: true,
   img: require('../../images/image-4.svg').default,
   alt: 'control',
-  dark: false,
-  primary: false,
+  dark: "false",
+  primary: "false",
   darkText: true
 };
 
 export const homeObjOne = {
   id: 'monitoring',
+  to: '',
   redirect: true,
   lightBg: false,
   lightText: true,
@@ -30,7 +31,7 @@ export const homeObjOne = {
   imgStart: false,
   img: require('../../images/image-5.svg').default,
   alt: 'monitoring',
-  dark: true,
-  primary: true,
+  dark: "true",
+  primary: "true",
   darkText: false
 };

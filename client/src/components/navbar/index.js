@@ -1,34 +1,46 @@
 import React from 'react';
 import {
+  IconLink,
+  LogoutIcon,
   Nav,
-  NavbarContainer,
-  NavbarWrapper,
   NavBtn,
-  NavBtnLink,
-  NavImg,
-  NavLogo
+  NavBtnText,
+  NavContainer,
+  NavTitle,
+  TitleText1,
+  TitleText2,
 } from './NavbarStyled';
 
 const Navbar = ({
-  btnText,
-  btnLink
+  title1,
+  title2
 }) => {
+
+  const signOutHandler = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+  }
+
   return (
     <>
-      <NavbarWrapper>
-        <Nav>
-          <NavbarContainer>
-            <NavLogo to='/'>
-              <NavImg src={require('../../images/rice_logo.png').default} alt='rice-logo' />
-              Rice Control
-            </NavLogo>
+      <Nav>
+        <NavContainer>
+          <NavTitle>
+            <TitleText1>{title1}</TitleText1>
+            <TitleText2>{title2}</TitleText2>
+          </NavTitle>
 
-            <NavBtn>
-              <NavBtnLink to={btnLink}>{btnText}</NavBtnLink>
-            </NavBtn>
-          </NavbarContainer>
-        </Nav>
-      </NavbarWrapper>
+          <NavBtn>
+            <NavBtnText>{localStorage.getItem("name") === null ? sessionStorage.getItem("name") : localStorage.getItem("name")}</NavBtnText>
+            <IconLink
+              to='/signin'
+              onClick={signOutHandler}
+            >
+              <LogoutIcon />
+            </IconLink>
+          </NavBtn>
+        </NavContainer>
+      </Nav>
     </>
   );
 };

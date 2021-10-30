@@ -1,10 +1,10 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import Dashboard from '../components/dashboard';
+import Data from '../components/data';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
 
-const DashboardPage = () => {
+const DataPage = () => {
 
   const redirectHandler = () => {
     if (localStorage.getItem("role") === null) {
@@ -27,22 +27,22 @@ const DashboardPage = () => {
   }
 
   const sideBarObj = {
-    sidebarObject: 'dashboard'
+    sidebarObject: 'data'
   }
 
   const navObj = {
     title1: 'Admin Page',
-    title2: 'Dashboard'
+    title2: 'Data'
   }
 
   return (
     <>
       {redirectHandler() === true ? <Redirect to='/' /> : ''}
-      <Dashboard />
+      <Data />
       <Sidebar {...sideBarObj} />
       <Navbar {...navObj} />
     </>
   );
 };
 
-export default DashboardPage;
+export default DataPage;
