@@ -6,16 +6,16 @@ require('dotenv').config();
 const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI);
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
-const sendConfirmationEmail = async (object) => {
+const sendApplyEmail = async (object) => {
   try {
-    const token = await jwt.sign({ 
+    const token = await jwt.sign({
       users_name: object.usersName,
       users_email: object.usersEmail,
-      users_role: object.usersRole,
-      users_verify: object.usersVerify
+      supervisor_name: object.supervisorName,
+      supervisor_email: object.supervisorEmail,
     }, process.env.JWT_SECRET_KEY);
 
-    const url = `http://localhost:3001/verify/${token}`;
+    const url = `http://localhost:3001/apply/${token}`;
 
     const accessToken = await oAuth2Client.getAccessToken();
 
@@ -33,10 +33,10 @@ const sendConfirmationEmail = async (object) => {
 
     const mailOptions = {
       from: 'Rice Monitoring 📧 <no-reply@ricemon.com>',
-      to: `${object.usersEmail}`,
-      subject: '[Rice Monitoring] Please verify your account',
+      to: `${object.supervisorEmail}`,
+      subject: '[Rice Monitoring] Someone Applying For An Employee!',
       text: '',
-      html: `<h3>Hey ${object.usersName}</h3><br/><p>Please click link bellow to verify your account.</p></br><a href=${url}>${url}</a></br><p>*The verification link automatically expired or inactive for use when have used once.</p>`
+      html: `<h3>To: Mr./Mrs. ${object.supervisorName}</h3><br/><p>With this letter, I apply to become an employee at Rice Control, with details:</p></br><p>Name: ${object.usersName}</p></br><p>Email: ${object.usersEmail}</p></br><p>Please click link bellow to verify my application, thank you.</p><a href=${url}>${url}</a></br><p>*The verification link automatically expired or inactive for use when have used once.</p>`
     };
 
     const result = await transport.sendMail(mailOptions);
@@ -47,4 +47,4 @@ const sendConfirmationEmail = async (object) => {
   }
 };
 
-exports.sendConfirmationEmail = sendConfirmationEmail;
+exports.sendApplyEmail = sendApplyEmail;

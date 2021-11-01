@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
+import { apiUrl } from '../api/apiUrl';
 import Dashboard from '../components/dashboard';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
@@ -38,7 +39,7 @@ const DashboardPage = () => {
   return (
     <>
       {redirectHandler() === true ? <Redirect to='/' /> : ''}
-      <Dashboard />
+      <Dashboard {...apiUrl} />
       <Sidebar {...sideBarObj} />
       <Navbar {...navObj} />
     </>

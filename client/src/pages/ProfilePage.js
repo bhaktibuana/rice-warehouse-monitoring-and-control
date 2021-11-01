@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
+import { apiUrl } from '../api/apiUrl';
 import Navbar from '../components/navbar';
 import Profile from '../components/profile';
 import Sidebar from '../components/sidebar';
@@ -30,7 +31,7 @@ const ProfilePage = () => {
   return (
     <>
       {redirectHandler() === true ? <Redirect to='/' /> : ''}
-      <Profile />
+      <Profile {...apiUrl} />
       <Sidebar {...sideBarObj} />      
       <Navbar {...navObj} />
     </>
